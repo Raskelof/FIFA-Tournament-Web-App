@@ -37,7 +37,7 @@
 		elsif(m.home_score < m.away_score)
 			winner_team = m.away_team
 		else
-			return ''
+			return 'gray'
 		end
 		
 		if(winner_team.players.include?(@player))
@@ -54,6 +54,7 @@
  .result-icon {display:inline-block;margin-right:10px;height:10px;width:10px;background-color:red}
  .red {background-color:red}
  .green {background-color:green}
+ .gray {background-color:gray}
  
 </style>
 

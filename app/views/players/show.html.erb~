@@ -73,7 +73,7 @@
 </div>
 
 
-<a href="/" data-role="button">Till startsidan</a> 
+<a href="/" data-role="button">To start page</a> 
 
 </div>
 <% end %>
