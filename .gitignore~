@@ -5,4 +5,3 @@ tmp/
 .sass-cache/
 .idea/*
 config/database.yml
-config/database.yml~
