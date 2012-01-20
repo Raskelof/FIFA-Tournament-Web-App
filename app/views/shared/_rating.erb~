@@ -1,0 +1,15 @@
+<%
+
+	highest_score = Player.all.sort_by{|p| p.score}.reverse.first.score
+	player_score = player.score
+
+	percentage_rank = (player_score * 100)  / highest_score
+	pixle_rank = (percentage_rank * 0.88).floor
+
+%>
+
+
+<div class="grey-stars " title="50 gäster har betygsatt anläggningen">
+	<div style="width: <%= pixle_rank %>px" class="gold-stars">
+	</div>
+</div>

@@ -1,0 +1,75 @@
+<%= form_for(@team) do |f| %>
+  <% if @team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+      <ul>
+      <% @team.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<ul data-role="listview" class="ui-listview">
+	<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-d">Add players</li>
+
+</ul>
+
+
+<select id="all-teams">
+	<% @players.each do |player| %>
+	<option value="<%= player.id %>"><%= player.username %></option>
+	<% end %>
+</select>
+
+<a data-icon="plus" data-role="button" href="javascript:void(0)" data-theme="e" class="ui-btn ui-btn-icon-right ui-btn-corner-all ui-shadow ui-btn-up-e" onclick="Team.addPlayer($('#all-teams option:selected').text(), $('#all-teams').val());">
+	<span class="ui-btn-inner ui-btn-corner-all" aria-hidden="true">
+		<span class="ui-btn-text">Add player</span>
+		<span class="ui-icon ui-icon-plus ui-icon-shadow"></span>
+	</span>
+</a>
+
+
+<ul data-role="listview" class="ui-listview">
+	<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-d">Team lineup</li>
+</ul>
+
+<div id="team-list">
+	<p class="text" style="text-align:center">Team is empty</p>
+</div>
+
+<ul data-role="listview" class="ui-listview">
+	<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-d">Save</li>
+</ul>
+
+
+<!--
+  <div class="players_holder">
+      <label for="players">Add player</label>
+      <select id="players">
+        <% @players.each do |player| %>
+        <option value="<%= player.id %>"><%= player.username %></option>
+        <% end %>
+      </select>
+      <input type="button" value="Add player to team" onclick="Team.AddPlayer();" />
+  </div>
+
+  <ul id="team_players_data_holder">
+    <% @team.players.each do |player| %>
+        <li data-id="<%= player.id %>">
+          <input type="hidden" name="team[player_list][<%= player.id %>]" id="team_player_list_<%= player.id %>" value="<%= player.id %>" />
+          <%= player.username %>
+           &nbsp; <a href="javascript:void(0);" onclick="Team.RemovePlayer(this);">Remove</a>
+        </li>
+    <% end %>
+  </ul>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+-->
+
+	<input type="submit" value="Create team" name="commit" class="ui-btn ui-btn-icon-right ui-btn-corner-all ui-shadow ui-btn-up-b ui-btn-hidden" data-theme="b" aria-disabled="false">
+
+<% end %>

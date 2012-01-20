@@ -1,0 +1,14 @@
+
+.grey-stars {
+    background: url("/assets/grey-stars.png") no-repeat scroll left center transparent;
+    float: left;
+    height: 17px;
+    margin: 3px 5px 0 0;
+    width: 87px;
+}
+
+.grey-stars .gold-stars {
+    background: url("/assets/gold-stars.png") no-repeat scroll left center transparent;
+    height: 100%;
+}
+

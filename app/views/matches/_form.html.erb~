@@ -1,0 +1,76 @@
+<%= form_for(@match) do |f| %>
+  <% if @match.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@match.errors.count, "error") %> prohibited this match from being saved:</h2>
+
+      <ul>
+      <% @match.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<ul data-role="listview" class="ui-listview">
+	<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-d">
+		<div class="ui-grid-a">
+			<div class="ui-block-a" style="width:75%;">
+				Hemmalag
+			</div>
+			<div class="ui-block-b" style="width:20%;">
+				Score
+			</div>
+		</div>
+		
+	</li>
+</ul>
+
+<div class="ui-grid-a">
+	<div class="ui-block-a"  style="width:75%;">
+		<select name="match[home_team_id]" id="match_home_team_id">
+		    <% @teams.each do |team| %>
+		      <option value="<%= team.id %>">
+			<%= team.display_name %>
+		      </option>
+		    <% end %>
+		    </select>	
+	</div>
+	<div class="ui-block-b" style="width:20%;padding-top:10px;">
+		<%= f.number_field :home_score %>	
+	</div>
+</div>
+
+
+<ul data-role="listview" class="ui-listview">
+	<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-d">
+	<div class="ui-grid-a">
+			<div class="ui-block-a"  style="width:75%;">
+				Bortalag
+			</div>
+			<div class="ui-block-b" style="width:20%;">
+				Score
+			</div>
+		</div>	
+	</li>
+</ul>
+
+<div class="ui-grid-a">
+	<div class="ui-block-a"  style="width:75%;">
+		<select name="match[away_team_id]" id="match_away_team_id">
+		    <% @teams.each do |team| %>
+		      <option value="<%= team.id %>">
+			<%= team.players.map{|p| p.username}.join(" & ") %>
+		      </option>
+		    <% end %>
+		    </select>	
+	</div>
+	<div class="ui-block-b" style="width:20%;padding-top:10px;">
+		    <%= f.number_field :away_score %>	
+	</div>
+</div>
+
+    <div class="actions">
+    <%#= f.submit %>
+	<input type="submit" value="Report match" name="commit" class="ui-btn ui-btn-icon-right ui-btn-corner-all ui-shadow ui-btn-up-b ui-btn-hidden" data-theme="b" aria-disabled="false">
+  </div>
+<% end %>

@@ -1,0 +1,36 @@
+<%= content_for :body do %>
+<h1>Listing teams</h1>
+
+<table>
+  <tr>
+    <th>Team members</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @teams.each do |team| %>
+  <tr>
+    <td><%= team.id %>
+         <%= team.display_name %><br/>
+      <% team.players.each do |player| %>
+         <%= player.username %><br/>
+      <% end %>
+    </td>
+    <td><%= link_to 'Show', team %></td>
+    <td><%= link_to 'Edit', edit_team_path(team) %></td>
+    <td><%= link_to 'Destroy', team, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <hr/>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New team', new_team_path %>
+
+<% end %>

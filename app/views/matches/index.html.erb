@@ -1,0 +1,27 @@
+<h1>Listing matches</h1>
+
+<table>
+  <tr>
+    <th>Match</th>
+    <th>Home score</th>
+    <th>Away score</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @matches.each do |match| %>
+  <tr>
+    <td><strong><%= match.home_team.display_name %> VS. <%= match.away_team.display_name %></strong></td>
+    <td><%= match.home_score %></td>
+    <td><%= match.away_score %></td>
+    <td><%= link_to 'Show', match %></td>
+    <td><%= link_to 'Edit', edit_match_path(match) %></td>
+    <td><%= link_to 'Destroy', match, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Match', new_match_path %>

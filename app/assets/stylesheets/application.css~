@@ -1,0 +1,22 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
+
+.grey-stars {
+    background: url("/assets/grey-stars.png") no-repeat scroll left center transparent;
+    float: left;
+    height: 17px;
+    margin: 3px 5px 0 0;
+    width: 87px;
+}
+
+.grey-stars .gold-stars {
+    background: url("/assets/gold-stars.png") no-repeat scroll left center transparent;
+    height: 100%;
+}
+

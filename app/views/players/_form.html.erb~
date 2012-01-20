@@ -1,0 +1,30 @@
+<%= form_for(@player) do |f| %>
+  <% if @player.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@player.errors.count, "error") %> prohibited this player from being saved:</h2>
+
+      <ul>
+      <% @player.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<style>
+	.field {padding:4px 8px 6px 8px}
+</style>
+
+  <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="actions">
+    <%#= f.submit %>
+		<input type="submit" value="Add new player" name="commit" class="ui-btn ui-btn-icon-right ui-btn-corner-all ui-shadow ui-btn-up-b ui-btn-hidden" data-theme="b" aria-disabled="false">
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  player_id: 1
+  msg: MyText
+  points: 1
+
+two:
+  player_id: 1
+  msg: MyText
+  points: 1

@@ -1,0 +1,42 @@
+<% content_for :body do %>
+
+  <div data-role="header" data-theme="a">
+    <h1>Match results</h1>
+    <a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
+  </div>
+
+<div data-role="content">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Home team:</b>
+  <%= @match.home_team.display_name %>
+</p>
+
+<p>
+  <b>Home score:</b>
+  <%= @match.home_score %>
+</p>
+
+<p>
+  <b>Away team:</b>
+  <%= @match.away_team.display_name %>
+</p>
+
+<p>
+  <b>Away score:</b>
+  <%= @match.away_score %>
+</p>
+
+<p>
+  <b>Points trace:</b><br />
+  <%= raw @match.points_trace %>
+</p>
+
+
+<a href="/" data-role="button">To start page</a> 
+</div>
+<% end %>
+
+<%#= link_to 'Edit', edit_match_path(@match) %> |
+<%#= link_to 'Back', matches_path %>

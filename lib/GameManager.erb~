@@ -1,0 +1,6 @@
+
+	class GameManager
+		 def EvaluateMatch
+		 	"hello"
+		 end
+	end

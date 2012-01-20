@@ -1,0 +1,16 @@
+
+<% content_for :body do %>
+
+  <div data-role="header" data-theme="a">
+ <a href="javascript:history.back()" data-icon="back" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">Back</a> 
+	 <h1>Double league</h1>
+    <a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
+  </div>
+
+
+<div data-role="content">
+
+<%= render :partial => "league_double_team", :locals => { :teams => @teams } %>
+
+</div>
+<% end %>

@@ -1,0 +1,45 @@
+
+<% content_for :body do %>
+
+  <div data-role="header" data-theme="a">
+
+ <a href="javascript:history.back()" data-icon="back" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">Back</a> 
+    <h1>Player rankings</h1>
+    <a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
+  </div>
+
+
+<div data-role="content">
+
+<ul data-role="listview" class="ui-listview">
+	<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-d">
+	<div class="ui-grid-a">
+			<div class="ui-block-a"  style="width:71%">
+				Player
+			</div>
+			<div class="ui-block-b" style="width:20%;text-align:right;padding-right:10px;">
+				Score
+			</div>
+		</div>	
+	</li>
+	<% @standings.each do |player| %>
+	<li  data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c">
+	<a href="<%= player_path(player) %>">
+	<div class="ui-grid-a">
+			<div class="ui-block-a"  style="width:75%;">
+				<%= player.username %>	<br />	
+				<%= render :partial => "/shared/rating", :locals => { player => player } %>
+			</div>
+			<div class="ui-block-b" style="width:20%;text-align:right;padding:8px 10px 0 0 ;">
+				<%= player.score %>
+			</div>
+		</div>	
+	</a>
+	</li>
+	<% end %>
+</ul>
+
+
+
+</div>
+<% end %>

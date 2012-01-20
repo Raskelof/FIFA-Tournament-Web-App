@@ -1,0 +1,36 @@
+<% content_for :body do %>
+<div class="portrait-mode">
+  <div data-role="content" style="background:#fff">
+	<div style="text-align:center">
+		<img class="logo" src="/assets/header.gif" style="width:90%"  />
+	</div>
+
+    <ul data-role="listview" data-inset="true">
+	<li><a href="/matches/new">Report match</a></li>
+        <li><a href="/statistics">Statistics</a></li> 
+    </ul>
+
+    <ul data-role="listview" data-inset="true">
+        <li><a href="/players/new">Add new player</a></li>
+   	<li><a href="/teams/new">Add new team</a></li>	  
+    </ul>
+	<br />
+	<ul data-role="listview" class="ui-listview">
+		<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-b">
+		Latest activity	
+		</li>
+		<% @match_logs.take(5).each do |log| %>
+		  <li  data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c">
+			@<%= log.created_at.to_s(:regular) %> &nbsp; / &nbsp; <%=raw log.msg %>!</li>
+	      <% end %>	
+	</ul>
+
+  </div>
+</div>
+<div class="landscape-mode hidden">
+	<div data-role="content" style="background:#fff">
+	<%= render :partial => "/statistics/league_double_team", :locals => { :teams => @teams } %>
+	</div>
+</div>
+
+<% end %>

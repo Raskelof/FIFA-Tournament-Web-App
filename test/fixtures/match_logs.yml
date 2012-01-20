@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  match_id: 1
+  msg: MyText
+
+two:
+  match_id: 1
+  msg: MyText

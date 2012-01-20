@@ -1,0 +1,30 @@
+<% content_for :body do %>
+<h1>Listing players</h1>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Score</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @players.each do |player| %>
+  <tr>
+    <td><%= player.username %></td>
+    <td><%= player.score %></td>
+    <td><%= player.email %></td>
+    <td><%= link_to 'Show', player %></td>
+    <td><%= link_to 'Edit', edit_player_path(player) %></td>
+    <td><%= link_to 'Destroy', player, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Player', new_player_path %>
+
+<% end %>

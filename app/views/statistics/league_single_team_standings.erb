@@ -1,0 +1,56 @@
+
+<% content_for :body do %>
+
+  <div data-role="header" data-theme="a">
+ <a href="javascript:history.back()" data-icon="back" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">Back</a> 
+	 <h1>Single league</h1>
+    <a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
+  </div>
+
+
+<div data-role="content">
+
+<ul data-role="listview" class="ui-listview">
+	<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-d">
+	Single team standings
+	</li>
+</ul>
+<br />
+
+<style>
+	table th, table td {text-align:right}
+	.red {color:#e00c20}
+	.blue {color:#205bd5}
+	.green {color:#72c635}
+</style>
+
+<table style="width:100%">
+	<thead>
+		<tr>
+		<th style="text-align:left">Team</th>
+		<th>P</th>
+		<th>W</th>
+		<th>L</th>
+		<th>D</th>
+		<th>PTS</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @teams.each do |team| %>
+		<tr>
+		<td style="text-align:left"><%= team.display_name %></td>
+		<td><%= team.matches.length %></td>
+		<td class="green"><%= team.wins %></td>
+		<td class="red"><%= team.losses %></td>
+		<td><%= team.draws %></td>
+		<td class="blue"><%= team.points %></td>
+		</tr>
+		<% end %>
+	</tbody>
+	<tfooter>
+	</tfooter>
+</table>
+
+
+</div>
+<% end %>
