@@ -1,10 +1,8 @@
 class StatisticsController < ApplicationController
-  # GET /statistics
-  # GET /statistics.json
   def index
-	players = Player.all.to_a
-	@standings = players.sort_by{|p| p.score}.reverse	
-	@teams = Team.all
+    players = Player.all.to_a
+    @standings = players.sort_by{|p| p.score}.reverse
+    @teams = Team.all
   end
 
   # GET /statistics/1
@@ -52,22 +50,16 @@ class StatisticsController < ApplicationController
 
   def league_player_points
   	players = Player.all.to_a
-	@standings = players.sort_by{|p| p.score}.reverse	
-	@teams = Team.all
+	  @standings = players.sort_by{|p| p.score}.reverse
   end
 
 
   def league_double_team_standings
-  	players = Player.all.to_a
-	@standings = players.sort_by{|p| p.score}.reverse	
-	@teams = Team.all
+  	@teams = Team.all.select{|t| t.players.length > 1}.sort_by{|t| t.points}.reverse
   end
 
-def league_single_team_standings
-  	players = Player.all.to_a
-	@standings = players.sort_by{|p| p.score}.reverse	
-	@teams = Team.all
-
+  def league_single_team_standings
+  	@teams = Team.all.select{|t| t.players.length == 1}.sort_by{|t| t.points}.reverse
   end
 
   # PUT /statistics/1

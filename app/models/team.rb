@@ -29,6 +29,15 @@ class Team < ActiveRecord::Base
     (wins * 3) + (draws * 1)
   end
 
+  def points_per_game
+    matchcount = matches.count
+    if(matches.count < 1)
+	matchcount = 1
+    end
+
+    ((wins * 3) + (draws * 1)) / matchcount
+  end
+
   private
   def update_players
     #players.delete_all
