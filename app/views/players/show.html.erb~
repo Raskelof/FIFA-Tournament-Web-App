@@ -116,7 +116,6 @@
 	<% @player_matches.each do |match| %>
 	<li  data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c" >
 	  <span class="result-icon <%= color(match) %>"></span> <%= match.home_team.display_name  %> (<%= match.home_score  %>) vs (<%= match.away_score  %>) <%= match.away_team.display_name  %>
->>>>>>> c98ef796553b75a0c670ff1ce9cbc3c2624fffd0
 	 
 	</style>
 		<div id="match-list" class="stat_view">
