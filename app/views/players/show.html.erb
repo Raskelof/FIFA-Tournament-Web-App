@@ -1,12 +1,15 @@
-<% content_for :body_full do %>
+<% content_for :header do %>
 
-<div data-role="page" id="page-info">
-
-	
 	<script language="javascript" type="text/javascript" src="/ui/flot/jquery.flot.js"></script>
 	<script language="javascript" type="text/javascript" src="/ui/flot/jquery.flot.pie.js"></script>
     <script language="javascript" type="text/javascript" src="/ui/flot/jquery.flot.resize.js"></script>
 
+
+<% end %>
+
+<% content_for :body_full do %>
+
+<div data-role="page" id="page-info">
 
 	  <div data-role="header" data-theme="a">
 		 <a href="javascript:history.back()" data-icon="back" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">Back</a> 

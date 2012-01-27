@@ -1,207 +1,84 @@
-<% content_for :body_full do %>
+<% content_for :header do %>
 
-<div data-role="page" id="page-info">
-
-	
 	<script language="javascript" type="text/javascript" src="/ui/flot/jquery.flot.js"></script>
 	<script language="javascript" type="text/javascript" src="/ui/flot/jquery.flot.pie.js"></script>
     <script language="javascript" type="text/javascript" src="/ui/flot/jquery.flot.resize.js"></script>
 
 
-	  <div data-role="header" data-theme="a">
-		 <a href="javascript:history.back()" data-icon="back" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">Back</a> 
-		<h1><%= @player.username %></h1>
-		<a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
-	  </div>
+<% end %>
 
-	<div data-role="navbar">
-		<ul>
-			<li><a  href="<%= player_path %>#page-info" class="ui-btn-active">Info</a></li>
-			<li><a  href="<%= player_path %>#page-matches">Matches</a></li>
-			<li><a  href="<%= player_path %>#page-pie">Won/Lost</a></li>
-			<li><a  href="<%= player_path %>#page-ranking">Ranking</a></li>
-		</ul>
-	</div>
+<% content_for :body_full do %>
+<!-- Start of first page: #one -->
+<div data-role="page" id="one">
 
-	<div data-role="content">
-		<div style="padding:0 8px 0 8px 0">
+	<div data-role="header">
+		<h1>Multi-page</h1>
+	</div><!-- /header -->
 
-		<p id="notice"><%= notice %></p>
-
-		<h2><%= @player.username %></h2>
-		<p>
-		  <b>Score:</b>
-		  <%= @player.score %>
-		</p>
- 
-		<%= render :partial => "/shared/rating", :locals => { :player => @player } %>
-		<br />
-
-		<p>
-		  <b>Email:</b>
-		  <%= @player.email %>
-		</p>
-		<br />
-
-		</div>
-
-	</div>
-</div>
-
-<div data-role="page" id="page-matches">
-	  <div data-role="header" data-theme="a">
-			 <a href="javascript:history.back()" data-icon="back" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">Back</a> 
-			<h1><%= @player.username %> - Matches</h1>
-			<a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
-		  </div>
-
-		<div data-role="navbar">
-			<ul>
-				<li><a  href="<%= player_path %>#page-info">Info</a></li>
-				<li><a  href="<%= player_path %>#page-matches" class="ui-btn-active">Matches</a></li>
-				<li><a  href="<%= player_path %>#page-pie">Won/Lost</a></li>
-				<li><a  href="<%= player_path %>#page-ranking">Ranking</a></li>
-			</ul>
-		</div>
-
-<div data-role="content">
-
-
-	<!-- matches -->
-	
-	
-	<%
-
-		def color(m)
-			winner_team = nil
-
-			if(m.home_score > m.away_score)
-				winner_team = m.home_team
-			elsif(m.home_score < m.away_score)
-				winner_team = m.away_team
-			else
-				return 'gray'
-			end
-
-			if(winner_team.players.include?(@player))
-				return 'green'
-			else
-				return 'red'
-			end
-
-		end
-	%>
-
-<style>
- .result-icon {display:inline-block;margin-right:10px;height:10px;width:10px;background-color:red}
- .red {background-color:red}
- .green {background-color:green}
- .gray {background-color:gray}
- 
-</style>
-
-		<div id="match-list" class="stat_view">
-		<ul data-role="listview" class="ui-listview">
-			<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-d">
-				Matches
-			</li>
-			<% @player_matches.each do |match| %>
-			<li  data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c" >
-			  <span class="result-icon <%= color(match) %>"></span> <%= match.home_team.display_name  %> (<%= match.home_score  %>) vs (<%= match.away_score  %>) <%= match.away_team.display_name  %>
-			 
-			</li>
-			<% end %>
-		</ul>
-
-		<br />
-		</div>
-
-
-
-</div>
-
-</div>
-
-<div data-role="page" id="page-pie">
-		  <div data-role="header" data-theme="a">
-			 <a href="javascript:history.back()" data-icon="back" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">Back</a> 
-			<h1><%= @player.username %> - Pie</h1>
-			<a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
-		  </div>
-
-		<div data-role="navbar">
-			<ul>
-				<li><a  href="<%= player_path %>#page-info">Info</a></li>
-				<li><a  href="<%= player_path %>#page-matches">Matches</a></li>
-				<li><a  href="<%= player_path %>#page-pie" class="ui-btn-active">Won/Lost</a></li>
-				<li><a  href="<%= player_path %>#page-ranking">Ranking</a></li>
-			</ul>
-		</div>
-	<div data-role="content">
-	
-	
-	
-	
-		<script>
-
-		$(function () {
-			// data
-			var data = [
-				{ label: "Games lost",  data: <%= @players_games_lost %>},
-				{ label: "Games won",  data: <%= @players_games_won %>},
-				{ label: "Draws",  data: <%= @players_games_draw %>}
-			];
-
-
-			// GRAPH 1
-			$.plot($("#graph"), data, 
-			{
-				series: {
-					pie: { 
-						show: true,
-						background:{color:'#000'}
-					}
-				},
-				legend: {
-					show: false
-				},
-				colors: ["#f1375e","#7bd234", "#afb0af"]
-			});
-		});	
+	<div data-role="content" >	
+		<h2>One</h2>
 		
+		<p>I have an id of "one" on my page container. I'm first in the source order so I'm shown when the page loads.</p>	
 		
-		
+		<p>This is a multi-page boilerplate template that you can copy to build you first jQuery Mobile page. This template contains multiple "page" containers inside, unlike a <a href="page-template.html"> single page template</a> that has just one page within it.</p>	
+		<p>Just view the source and copy the code to get started. All the CSS and JS is linked to the jQuery CDN versions so this is super easy to set up. Remember to include a meta viewport tag in the head to set the zoom level.</p>
 
-		</script>
-		<div id="graph" class="stat_view" style="width:280px;height:280px;">
+		<p>You link to internal pages by referring to the ID of the page you want to show. For example, to <a href="#two" >link</a> to the page with an ID of "two", my link would have a <code>href="#two"</code> in the code.</p>	
 
-		</div>
-		
-		<br />
-		<br />
+		<h3>Show internal pages:</h3>
+		<p><a href="#two" data-role="button">Show page "two"</a></p>	
+		<p><a href="#popup"data-role="button" data-rel="dialog" data-transition="pop">Show page "popup" (as a dialog)</a></p>
+	</div><!-- /content -->
+
 	
+	<div data-role="footer" data-theme="d">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page one -->
+
+
+<!-- Start of second page: #two -->
+<div data-role="page" id="two" data-theme="a">
+
+	<div data-role="header">
+		<h1>Two</h1>
+
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="a">	
+		<h2>Two</h2>
+		<p>I have an id of "two" on my page container. I'm the second page container in this multi-page template.</p>	
+		<p>Notice that the theme is different for this page because we've added a few <code>data-theme</code> swatch assigments here to show off how flexible it is. You can add any content or widget to these pages, but we're keeping these simple.</p>	
+		<p><a href="#one" data-direction="reverse" data-role="button" data-theme="b">Back to page "one"</a></p>	
+		
+	</div><!-- /content -->
+
 	
-	</div>
-</div>
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page two -->
 
-<div data-role="page" id="page-ranking">
-		  <div data-role="header" data-theme="a">
-			 <a href="javascript:history.back()" data-icon="back" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">Back</a> 
-			<h1><%= @player.username %> - Ranking</h1>
-			<a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
-		  </div>
 
-		<div data-role="navbar">
-			<ul>
-				<li><a  href="<%= player_path %>#page-info">Info</a></li>
-				<li><a  href="<%= player_path %>#page-matches">Matches</a></li>
-				<li><a  href="<%= player_path %>#page-pie">Won/Lost</a></li>
-				<li><a  href="<%= player_path %>#page-ranking" class="ui-btn-active">Ranking</a></li>
-			</ul>
-		</div>
-		<%= render 'historic_ranking' %>
-</div>
+<!-- Start of third page: #popup -->
+<div data-role="page" id="popup">
 
+	<div data-role="header" data-theme="e">
+		<h1>Dialog</h1>
+
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="d">	
+		<h2>Popup</h2>
+		<p>I have an id of "popup" on my page container and only look like a dialog because the link to me had a <code>data-rel="dialog"</code> attribute which gives me this inset look and a <code>data-transition="pop"</code> attribute to change the transition to pop. Without this, I'd be styled as a normal page.</p>		
+		<p><a href="#one" data-rel="back" data-role="button" data-inline="true" data-icon="back">Back to page "one"</a></p>	
+	</div><!-- /content -->
+
+	
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page popup -->
 
 
 <% end %>

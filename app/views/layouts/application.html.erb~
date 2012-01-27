@@ -22,6 +22,8 @@
 		.hidden {display:none}	
 		
 	</style>
+	
+	<%= yield :header %>
 
 </head> 
 <body style="background:#fff"> 

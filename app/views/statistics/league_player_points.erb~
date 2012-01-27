@@ -28,7 +28,7 @@
 	<div class="ui-grid-a">
 			<div class="ui-block-a"  style="width:75%;">
 				<%= player.username %>	<br />	
-				<%= render :partial => "/shared/rating", :locals => { player => player } %>
+				<%= render :partial => "/shared/rating", :locals => { :player => player } %>
 			</div>
 			<div class="ui-block-b" style="width:20%;text-align:right;padding:8px 10px 0 0 ;">
 				<%= player.score %>
