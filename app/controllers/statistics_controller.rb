@@ -55,7 +55,7 @@ class StatisticsController < ApplicationController
 
 
   def league_double_team_standings
-  	@teams = Team.all.select{|t| t.players.length > 1}.sort_by{|t| t.points}.reverse
+  	@teams = Team.all.select{|t| t.players.length > 1}.sort_by{|t| t.points_per_game}.reverse
   end
 
   def league_single_team_standings
