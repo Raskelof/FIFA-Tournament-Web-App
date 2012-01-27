@@ -55,6 +55,8 @@ class PlayersController < ApplicationController
 			end
 		end
 	end
+
+	#@player_logs = @player.player_logs
   end
 
   # GET /players/new

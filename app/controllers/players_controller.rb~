@@ -47,14 +47,16 @@ class PlayersController < ApplicationController
 			else
 				@players_games_draw += 1
 			end
-	
-			if(winner_team.players.include?(@player))
+		
+			if(!winner_team.nil? && winner_team.players.include?(@player))
 				@players_games_won += 1
 			else
 				@players_games_lost += 1
 			end
 		end
 	end
+
+	#@player_logs = @player.player_logs
   end
 
   # GET /players/new
@@ -119,5 +121,11 @@ class PlayersController < ApplicationController
       format.html { redirect_to players_url }
       format.json { head :ok }
     end
+  end
+
+  protected
+
+  def get_player_scores_from_date()
+	
   end
 end

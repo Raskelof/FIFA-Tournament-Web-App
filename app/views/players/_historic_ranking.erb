@@ -1,11 +1,16 @@
 <div data-role="content">
-		
-	
-		<script>
+<script>
 
+$(function () {
 
-		$(function () {
-    var d = [[-373597200000, 1000], [-370918800000, 1200], [-368326800000, 1220], [-363056400000, 800], [-360378000000, 780], [-357699600000, 700]]; 
+    <% logs = @player.player_logs.sort_by{|l| l.created_at}.reverse %>
+    var d = 
+    [
+    <% logs.each_with_index do |log, index| %>
+	[<%= log.created_at.to_i * 1000%>, <%= log.score %>]
+	<% if(index != (logs.length-1)) %>, <% end%>
+    <% end %>
+    ];
 
     $.plot($("#placeholder"), [d], { colors: ["#f1375e","#7bd234", "#afb0af"], xaxis: { mode: "time" } });
 
@@ -13,33 +18,10 @@
         $.plot($("#placeholder"), [d], { colors: ["#f1375e","#7bd234", "#afb0af"], xaxis: { mode: "time" } });
     });
 
-    $("#nineties").click(function () {
-        $.plot($("#placeholder"), [d], {
-            xaxis: {
-                mode: "time",
-                min: (new Date(1990, 1, 1)).getTime(),
-                max: (new Date(2000, 1, 1)).getTime()
-            }
-        });
-    });
-
-    $("#ninetynine").click(function () {
-        $.plot($("#placeholder"), [d], {
-            xaxis: {
-                mode: "time",
-                minTickSize: [1, "month"],
-                min: (new Date(1999, 1, 1)).getTime(),
-                max: (new Date(2000, 1, 1)).getTime()
-            }
-        });
-    });
 });
-
+</script>
 	
-
-		</script>
-	
-	<div id="placeholder" style="width:300px;height:200px;"></div>
-		<br />
-		<br />
-	</div>
+<div id="placeholder" style="width:300px;height:200px;"></div>
+	<br />
+	<br />
+</div>
