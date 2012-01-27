@@ -1,6 +1,5 @@
 <% content_for :body_full do %>
 
-
 <div data-role="page" id="page-info">
 
 	
@@ -17,10 +16,10 @@
 
 	<div data-role="navbar">
 		<ul>
-			<li><a  href="#page-info" class="ui-btn-active">Info</a></li>
-			<li><a  href="#page-matches">Matches</a></li>
-			<li><a  href="#page-pie">Won/Lost</a></li>
-			<li><a  href="#page-ranking">Ranking</a></li>
+			<li><a  href="http://192.168.8.103:3000/players/3#page-info" class="ui-btn-active">Info</a></li>
+			<li><a  href="http://192.168.8.103:3000/players/3#page-matches">Matches</a></li>
+			<li><a  href="http://localhost:3000/players/3#page-pie">Won/Lost</a></li>
+			<li><a  href="http://localhost:3000/players/3#page-ranking">Ranking</a></li>
 		</ul>
 	</div>
 
@@ -58,8 +57,8 @@
 
 		<div data-role="navbar">
 			<ul>
-				<li><a  href="#page-info" class="ui-btn-active">Info</a></li>
-				<li><a  href="#page-matches">Matches</a></li>
+				<li><a  href="#page-info">Info</a></li>
+				<li><a  href="#page-matches" class="ui-btn-active">Matches</a></li>
 				<li><a  href="#page-pie">Won/Lost</a></li>
 				<li><a  href="#page-ranking">Ranking</a></li>
 			</ul>
@@ -75,22 +74,14 @@
 
 		def color(m)
 			winner_team = nil
-		
+
 			if(m.home_score > m.away_score)
 				winner_team = m.home_team
 			elsif(m.home_score < m.away_score)
 				winner_team = m.away_team
 			else
-				return ''
+				return 'gray'
 			end
-
-		if(m.home_score > m.away_score)
-			winner_team = m.home_team
-		elsif(m.home_score < m.away_score)
-			winner_team = m.away_team
-		else
-			return 'gray'
-		end
 
 			if(winner_team.players.include?(@player))
 				return 'green'
@@ -109,15 +100,6 @@
  
 </style>
 
-<ul data-role="listview" class="ui-listview">
-	<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-d">
-		Matches
-	</li>
-	<% @player_matches.each do |match| %>
-	<li  data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c" >
-	  <span class="result-icon <%= color(match) %>"></span> <%= match.home_team.display_name  %> (<%= match.home_score  %>) vs (<%= match.away_score  %>) <%= match.away_team.display_name  %>
-	 
-	</style>
 		<div id="match-list" class="stat_view">
 		<ul data-role="listview" class="ui-listview">
 			<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-d">
@@ -140,12 +122,6 @@
 
 </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<a href="/" data-role="button">To start page</a> 
-=======
-=======
->>>>>>> b2a562cf4b41ebb416d64fc61990af151bc44eb1
 <div data-role="page" id="page-pie">
 		  <div data-role="header" data-theme="a">
 			 <a href="javascript:history.back()" data-icon="back" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">Back</a> 
@@ -155,9 +131,9 @@
 
 		<div data-role="navbar">
 			<ul>
-				<li><a  href="#page-info" class="ui-btn-active">Info</a></li>
+				<li><a  href="#page-info">Info</a></li>
 				<li><a  href="#page-matches">Matches</a></li>
-				<li><a  href="#page-pie">Won/Lost</a></li>
+				<li><a  href="#page-pie" class="ui-btn-active">Won/Lost</a></li>
 				<li><a  href="#page-ranking">Ranking</a></li>
 			</ul>
 		</div>
@@ -195,13 +171,9 @@
 		
 		
 		
-<<<<<<< HEAD
->>>>>>> a52788d955d2679f97958127ea529fc9a19f111f
-=======
->>>>>>> b2a562cf4b41ebb416d64fc61990af151bc44eb1
 
 		</script>
-		<div id="graph" class="stat_view" style="width:300px;height:300px;">
+		<div id="graph" class="stat_view" style="width:280px;height:280px;">
 
 		</div>
 		
@@ -221,13 +193,13 @@
 
 		<div data-role="navbar">
 			<ul>
-				<li><a  href="#page-info" class="ui-btn-active">Info</a></li>
+				<li><a  href="#page-info">Info</a></li>
 				<li><a  href="#page-matches">Matches</a></li>
 				<li><a  href="#page-pie">Won/Lost</a></li>
-				<li><a  href="#page-ranking">Ranking</a></li>
+				<li><a  href="#page-ranking" class="ui-btn-active">Ranking</a></li>
 			</ul>
 		</div>
-		<%= render 'historic_ranking' %>
+		<%= render 'historic_ranking_test' %>
 </div>
 
 

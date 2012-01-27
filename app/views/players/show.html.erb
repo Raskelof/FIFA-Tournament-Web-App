@@ -1,6 +1,5 @@
 <% content_for :body_full do %>
 
-
 <div data-role="page" id="page-info">
 
 	
@@ -17,10 +16,10 @@
 
 	<div data-role="navbar">
 		<ul>
-			<li><a  href="#page-info" class="ui-btn-active">Info</a></li>
-			<li><a  href="#page-matches">Matches</a></li>
-			<li><a  href="#page-pie">Won/Lost</a></li>
-			<li><a  href="#page-ranking">Ranking</a></li>
+			<li><a  href="http://192.168.8.103:3000/players/3#page-info" class="ui-btn-active">Info</a></li>
+			<li><a  href="http://192.168.8.103:3000/players/3#page-matches">Matches</a></li>
+			<li><a  href="http://localhost:3000/players/3#page-pie">Won/Lost</a></li>
+			<li><a  href="http://localhost:3000/players/3#page-ranking">Ranking</a></li>
 		</ul>
 	</div>
 
@@ -58,8 +57,8 @@
 
 		<div data-role="navbar">
 			<ul>
-				<li><a  href="#page-info" class="ui-btn-active">Info</a></li>
-				<li><a  href="#page-matches">Matches</a></li>
+				<li><a  href="#page-info">Info</a></li>
+				<li><a  href="#page-matches" class="ui-btn-active">Matches</a></li>
 				<li><a  href="#page-pie">Won/Lost</a></li>
 				<li><a  href="#page-ranking">Ranking</a></li>
 			</ul>
@@ -75,14 +74,6 @@
 
 		def color(m)
 			winner_team = nil
-		
-			if(m.home_score > m.away_score)
-				winner_team = m.home_team
-			elsif(m.home_score < m.away_score)
-				winner_team = m.away_team
-			else
-				return ''
-			end
 
 			if(m.home_score > m.away_score)
 				winner_team = m.home_team
@@ -140,9 +131,9 @@
 
 		<div data-role="navbar">
 			<ul>
-				<li><a  href="#page-info" class="ui-btn-active">Info</a></li>
+				<li><a  href="#page-info">Info</a></li>
 				<li><a  href="#page-matches">Matches</a></li>
-				<li><a  href="#page-pie">Won/Lost</a></li>
+				<li><a  href="#page-pie" class="ui-btn-active">Won/Lost</a></li>
 				<li><a  href="#page-ranking">Ranking</a></li>
 			</ul>
 		</div>
@@ -182,7 +173,7 @@
 		
 
 		</script>
-		<div id="graph" class="stat_view" style="width:300px;height:300px;">
+		<div id="graph" class="stat_view" style="width:280px;height:280px;">
 
 		</div>
 		
@@ -202,10 +193,10 @@
 
 		<div data-role="navbar">
 			<ul>
-				<li><a  href="#page-info" class="ui-btn-active">Info</a></li>
+				<li><a  href="#page-info">Info</a></li>
 				<li><a  href="#page-matches">Matches</a></li>
 				<li><a  href="#page-pie">Won/Lost</a></li>
-				<li><a  href="#page-ranking">Ranking</a></li>
+				<li><a  href="#page-ranking" class="ui-btn-active">Ranking</a></li>
 			</ul>
 		</div>
 		<%= render 'historic_ranking' %>

@@ -1,18 +1,13 @@
 <div data-role="content">
-<script>
+		
+	
+		<script>
 
-$(function () {
 
-    <% logs = @player.player_logs.sort_by{|l| l.created_at}.reverse %>
-    var d = 
-    [
-    <% logs.each_with_index do |log, index| %>
-	[<%= log.created_at.to_i * 1000%>, <%= log.score %>]
-	<% if(index != (logs.length-1)) %>, <% end%>
-    <% end %>
-    ];
+		$(function () {
+    var d = [[-373597200000, 1000], [-370918800000, 1200], [-368326800000, 1220], [-363056400000, 800], [-360378000000, 780], [-357699600000, 700]]; 
 
-     $.plot($("#placeholder"), [d], { colors: ["#3E94F7"], xaxis: { mode: "time" },
+    $.plot($("#placeholder"), [d], { colors: ["#3E94F7"], xaxis: { mode: "time" },
     grid: {
         color: '#000',      // => primary color used for outline and labels
         backgroundColor: null, // => null for transparent, else color
@@ -27,12 +22,16 @@ $(function () {
     
     });
     
+    //$("#placeholder").resize();
 
 
 });
-</script>
+
 	
-<div id="placeholder" style="width:300px;height:200px;"></div>
-	<br />
-	<br />
-</div>
+
+		</script>
+	
+	<div id="placeholder" style="width:100%;height:300px;"></div>
+		<br />
+		<br />
+	</div>

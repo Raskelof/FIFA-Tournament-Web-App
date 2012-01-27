@@ -30,14 +30,6 @@ ActiveRecord::Schema.define(:version => 20120127102209) do
     t.text     "points_trace"
   end
 
-  create_table "player_histories", :force => true do |t|
-    t.integer  "score"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "placement"
-    t.integer  "player_id"
-  end
-
   create_table "player_logs", :force => true do |t|
     t.integer  "player_id"
     t.text     "msg"
