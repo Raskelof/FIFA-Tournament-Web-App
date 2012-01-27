@@ -25,12 +25,16 @@
 
 </head> 
 <body style="background:#fff"> 
-
+<% if content_for?(:body_full) %>
+<%= yield :body_full %>
+<% else %>
 <div data-role="page" class="type-index" style="background:#fff">
 <a href="#" id="top"></a>
 	<%= yield :body %>
 
 </div>
+<% end %>
+
 </body>
 </html>
 

@@ -16,7 +16,7 @@
 	<script src="/ui/teams.js"></script>
 	<script src="/ui/jqm_helper.js"></script>
 	<script src="/ui/general.js"></script>
-	<link rel="stylesheet" href="/crap/main.css" />
+	<link rel="stylesheet" href="/ui/main.css" />
 
 	<style>
 		.hidden {display:none}	
@@ -25,12 +25,16 @@
 
 </head> 
 <body style="background:#fff"> 
-
+<% if content_for?(:body_full) %>
+<%= yield :body_full %>
+<% else %>
 <div data-role="page" class="type-index" style="background:#fff">
 <a href="#" id="top"></a>
 	<%= yield :body %>
 
 </div>
+<% end %>
+
 </body>
 </html>
 
