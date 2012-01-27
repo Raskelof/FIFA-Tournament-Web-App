@@ -140,6 +140,12 @@
 
 </div>
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<a href="/" data-role="button">To start page</a> 
+=======
+=======
+>>>>>>> b2a562cf4b41ebb416d64fc61990af151bc44eb1
 <div data-role="page" id="page-pie">
 		  <div data-role="header" data-theme="a">
 			 <a href="javascript:history.back()" data-icon="back" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">Back</a> 
@@ -189,6 +195,10 @@
 		
 		
 		
+<<<<<<< HEAD
+>>>>>>> a52788d955d2679f97958127ea529fc9a19f111f
+=======
+>>>>>>> b2a562cf4b41ebb416d64fc61990af151bc44eb1
 
 		</script>
 		<div id="graph" class="stat_view" style="width:300px;height:300px;">
