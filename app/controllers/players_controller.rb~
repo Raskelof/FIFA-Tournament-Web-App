@@ -22,12 +22,39 @@ class PlayersController < ApplicationController
 	end
    end
 
-   @player_matches.sort_by!{|m| m.created_at}
-
+   @player_matches.sort_by!{|m| m.created_at}.reverse!
+	get_player_statistics
+	
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @player }
     end
+  end
+  
+  def get_player_statistics
+  	
+  	@players_games_won = 0
+  	@players_games_lost = 0
+	@players_games_draw = 0
+	
+	@player.teams.each do |team|
+		team.matches.each do |m|
+			winner_team = nil
+			if(m.home_score > m.away_score)
+				winner_team = m.home_team
+			elsif(m.home_score < m.away_score)
+				winner_team = m.away_team
+			else
+				@players_games_draw += 1
+			end
+	
+			if(winner_team.players.include?(@player))
+				@players_games_won += 1
+			else
+				@players_games_lost += 1
+			end
+		end
+	end
   end
 
   # GET /players/new

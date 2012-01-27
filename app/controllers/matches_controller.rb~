@@ -53,14 +53,14 @@ class MatchesController < ApplicationController
     
     all_players.each do |player|
     	if all_players.select{|p| p.id == player.id}.length > 1
-    		raise 'Samma spelare i båda lagen'
+    		raise 'Samma spelare i bada lagen'
     	end
     end 
 
     respond_to do |format|
       if @match.save
         MatchLog.create({:match_id => @match.id, :msg => "<strong class='log_home_team'>#{@match.home_team.display_name}</strong> just played against <strong class='log_away_team'>#{@match.away_team.display_name}</strong> and it ended #{@match.home_score} - #{@match.away_score}"})
-        
+
         gm = GameManager.new
         gm.EvaluateMatch(@match)
         @match.points_trace = gm.points_trace
@@ -107,6 +107,15 @@ class MatchesController < ApplicationController
 
   def get_all_teams
     @teams = Team.all
+  end
+
+  def write_to_player_log (match_players)
+    players = Player.all.to_a
+    standings = players.sort_by{|p| p.score}.reverse
+
+    match_players.each do |player|
+	PlayerLog.create({:player_id => player.id, :msg => "", :score => player.score, :standing => (standings.index(player) + 1)})
+    end
   end
 
 end
