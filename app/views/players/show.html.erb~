@@ -34,7 +34,7 @@
 		  <b>Score:</b>
 		  <%= @player.score %>
 		</p>
-
+ 
 		<%= render :partial => "/shared/rating", :locals => { :player => @player } %>
 		<br />
 
