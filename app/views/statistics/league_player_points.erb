@@ -24,7 +24,7 @@
 	</li>
 	<% @standings.each do |player| %>
 	<li  data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c">
-	<a href="<%= player_path(player) %>" data-ajax="false">
+	<a href="<%= player_path(player) %>">
 	<div class="ui-grid-a">
 			<div class="ui-block-a"  style="width:75%;">
 				<%= player.username %>	<br />	

@@ -1,0 +1,59 @@
+<% content_for :body_full do %>
+
+<div data-role="page" id="page-pie">
+		  <div data-role="header" data-theme="a">
+			 <a href="javascript:history.back()" data-icon="back" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">Back</a> 
+			<h1><%= @player.username %> - Pie</h1>
+			<a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
+		  </div>
+
+		<%= render :partial => "/players/player_menu", :locals => { :active_menu => 'pie-chart' } %>
+	<div data-role="content">
+	
+	
+	
+	
+		<script>
+
+		$(function () {
+			// data
+			var data = [
+				{ label: "Games lost",  data: <%= @players_games_lost %>},
+				{ label: "Games won",  data: <%= @players_games_won %>},
+				{ label: "Draws",  data: <%= @players_games_draw %>}
+			];
+
+
+			// GRAPH 1
+			$.plot($("#graph"), data, 
+			{
+				series: {
+					pie: { 
+						show: true,
+						background:{color:'#000'}
+					}
+				},
+				legend: {
+					show: false
+				},
+				colors: ["#f1375e","#7bd234", "#afb0af"]
+			});
+		});	
+		
+		
+		
+
+		</script>
+		<div id="graph" class="stat_view" style="width:280px;height:280px;">
+
+		</div>
+		
+		<br />
+		<br />
+	
+	
+	</div>
+</div>
+
+
+<% end %>

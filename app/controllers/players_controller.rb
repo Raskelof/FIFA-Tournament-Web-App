@@ -1,6 +1,9 @@
 class PlayersController < ApplicationController
   # GET /players
   # GET /players.json
+  
+  before_filter :load_show_actions
+  
   def index
     @players = Player.all
 
@@ -9,27 +12,51 @@ class PlayersController < ApplicationController
       format.json { render json: @players }
     end
   end
+  
+  def load_show_actions
+  	@player = Player.find(params[:id])
+    @player_matches = []
+    
+   @player.teams.each do |team|
+		team.matches.each do |match|
+			@player_matches.push(match)
+		end
+   end
+
+   	@player_matches.sort_by!{|m| m.created_at}.reverse!
+		get_player_statistics
+  end
 
   # GET /players/1
   # GET /players/1.json
   def show
-    @player = Player.find(params[:id])
-    @player_matches = []
-    
-   @player.teams.each do |team|
-	team.matches.each do |match|
-		@player_matches.push(match)
-	end
-   end
-
-   @player_matches.sort_by!{|m| m.created_at}.reverse!
-	get_player_statistics
-	
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @player }
     end
   end
+  
+  def ranking_over_time
+   	 respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @player }
+    end
+  end
+  
+  def pie_chart
+   	 respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @player }
+    end
+  end
+  
+  def matches
+   	 respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @player }
+    end
+  end
+  
   
   def get_player_statistics
   	

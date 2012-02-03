@@ -1,0 +1,8 @@
+<div data-role="navbar">
+	<ul>
+		<li><a  href="<%= player_path %>" class="<%=(active_menu == 'info') ? 'ui-btn-active' : '' %>">Info</a></li>
+		<li><a  href="<%= player_path %>/matches" class="<%=(active_menu == 'matches') ? 'ui-btn-active' : '' %>">Matches</a></li>
+		<li><a  href="<%= player_path %>/pie-chart" class="<%=(active_menu == 'pie-chart') ? 'ui-btn-active' : '' %>">Won/Lost</a></li>
+		<li><a  href="<%= player_path %>/ranking-over-time" class="<%=(active_menu == 'ranking-over-time') ? 'ui-btn-active' : '' %>">Ranking</a></li>
+	</ul>
+</div>
