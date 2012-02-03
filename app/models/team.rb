@@ -1,6 +1,9 @@
 class Team < ActiveRecord::Base
   has_and_belongs_to_many :players
-  has_many :matches
+  has_many :home_matches, :class_name => "Match", :foreign_key => "home_team_id"
+  has_many :away_matches, :class_name => "Match", :foreign_key => "away_team_id"
+
+
 
   attr_accessor :player_list
   after_save :update_players
@@ -10,7 +13,7 @@ class Team < ActiveRecord::Base
   end
 
   def matches
-    Match.find(:all, :conditions => "home_team_id =  #{id}") + Match.find(:all, :conditions => "away_team_id =  #{id}")
+  	home_matches + away_matches
   end
 
   def wins
@@ -30,7 +33,7 @@ class Team < ActiveRecord::Base
   end
 
   def points_per_game
-    matchcount = matches.count
+    matchcount = matches.length
     if(matches.count < 1)
 			matchcount = 1
     end
@@ -40,7 +43,6 @@ class Team < ActiveRecord::Base
 
   private
   def update_players
-    #players.delete_all
     selected_players = player_list.nil? ? [] : player_list.keys.collect{|id| Player.find_by_id(id)}
     selected_players.each {|player| self.players << player}
   end

@@ -4,8 +4,9 @@ class Match < ActiveRecord::Base
 
   has_many :match_logs, :dependent => :delete_all
 
-  # funkar inte? den säger samma lag även fast det är olika?
+  # Dosent work, why?
   #validates :home_team_id, :uniqueness => { :scope => :away_team_id, :message => "cant be same as away team" }
+  
   validates :home_score, :presence => true
   validates :away_score, :presence => true
 end
