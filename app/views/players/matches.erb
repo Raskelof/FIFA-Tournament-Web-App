@@ -10,31 +10,7 @@
 		<%= render :partial => "/players/player_menu", :locals => { :active_menu => 'matches' } %>
 
 	<div data-role="content">
-
-
-		<!-- matches -->
-	
-		<%
-
-			def color(m)
-				winner_team = nil
-
-				if(m.home_score > m.away_score)
-					winner_team = m.home_team
-				elsif(m.home_score < m.away_score)
-					winner_team = m.away_team
-				else
-					return 'gray'
-				end
-
-				if(winner_team.players.include?(@player))
-					return 'green'
-				else
-					return 'red'
-				end
-
-			end
-		%>
+	<!-- matches -->
 
 	<style>
 	 .result-icon {display:inline-block;margin-right:10px;height:10px;width:10px;background-color:red}
@@ -51,7 +27,7 @@
 				</li>
 				<% @player_matches.each do |match| %>
 				<li  data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c" >
-					<span class="result-icon <%= color(match) %>"></span> <%= match.home_team.display_name  %> (<%= match.home_score  %>) vs (<%= match.away_score  %>) <%= match.away_team.display_name  %>
+					<span class="result-icon <%= get_match_color(match)  %>"></span> <%= match.home_team.display_name  %> (<%= match.home_score  %>) vs (<%= match.away_score  %>) <%= match.away_team.display_name  %>
 				 
 				</li>
 				<% end %>

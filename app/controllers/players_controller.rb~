@@ -3,6 +3,7 @@ class PlayersController < ApplicationController
   # GET /players.json
   
   before_filter :load_show_actions
+  helper_method :yes
   
   def index
     @players = Player.all
@@ -17,11 +18,11 @@ class PlayersController < ApplicationController
   	@player = Player.find(params[:id])
     @player_matches = []
     
-   @player.teams.each do |team|
-		team.matches.each do |match|
-			@player_matches.push(match)
-		end
-   end
+		 @player.teams.each do |team|
+			team.matches.each do |match|
+				@player_matches.push(match)
+			end
+		 end
 
    	@player_matches.sort_by!{|m| m.created_at}.reverse!
 		get_player_statistics
@@ -58,33 +59,50 @@ class PlayersController < ApplicationController
   end
   
   
-  def get_player_statistics
-  	
-  	@players_games_won = 0
-  	@players_games_lost = 0
-	@players_games_draw = 0
+def get_player_statistics
 	
-	@player.teams.each do |team|
-		team.matches.each do |m|
-			winner_team = nil
-			if(m.home_score > m.away_score)
-				winner_team = m.home_team
-			elsif(m.home_score < m.away_score)
-				winner_team = m.away_team
-			else
-				@players_games_draw += 1
-			end
-		
-			if(!winner_team.nil? && winner_team.players.include?(@player))
-				@players_games_won += 1
-			else
-				@players_games_lost += 1
+		@players_games_won = 0
+		@players_games_lost = 0
+	  @players_games_draw = 0
+
+		@player.teams.each do |team|
+			team.matches.each do |m|
+				winner_team = nil
+				if(m.home_score > m.away_score)
+					winner_team = m.home_team
+				elsif(m.home_score < m.away_score)
+					winner_team = m.away_team
+				else
+					@players_games_draw += 1
+				end
+	
+				if(!winner_team.nil? && winner_team.players.include?(@player))
+					@players_games_won += 1
+				else
+					@players_games_lost += 1
+				end
 			end
 		end
-	end
+#@player_logs = @player.player_logs
+end
+  
+def get_match_color(m)
+		winner_team = nil
 
-	#@player_logs = @player.player_logs
-  end
+		if(m.home_score > m.away_score)
+			winner_team = m.home_team
+		elsif(m.home_score < m.away_score)
+			winner_team = m.away_team
+		else
+			return 'gray'
+		end
+
+		if(winner_team.players.include?(@player))
+			return 'green'
+		else
+			return 'red'
+		end
+end
 
   # GET /players/new
   # GET /players/new.json

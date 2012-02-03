@@ -15,11 +15,11 @@
 	<thead>
 		<tr>
 		<th style="text-align:left">Team</th>
-		<th>S</th>
-		<th>V</th>
-		<th>F</th>
-		<th>O</th>
 		<th>P</th>
+		<th>W</th>
+		<th>L</th>
+		<th>D</th>
+		<th>PTS</th>
 		</tr>
 	</thead>
 	<tbody>

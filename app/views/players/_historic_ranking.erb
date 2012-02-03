@@ -13,17 +13,17 @@ $(function () {
     ];
 
      $.plot($("#placeholder"), [d], { colors: ["#3E94F7"], xaxis: { mode: "time" },
-    grid: {
-        color: '#000',      // => primary color used for outline and labels
-        backgroundColor: null, // => null for transparent, else color
-        tickColor: '#DDDDDD',  // => color used for the ticks
-        labelMargin: 3,        // => margin in pixels
-        verticalLines: true,   // => whether to show gridlines in vertical direction
-        horizontalLines: true, // => whether to show gridlines in horizontal direction
-        outlineWidth: 1        // => width of the grid outline/border in pixels
-      } ,
-      lines: { show: true },
-            points: { show: true }
+		  grid: {
+		      color: '#000',      // => primary color used for outline and labels
+		      backgroundColor: '#fff', // => null for transparent, else color
+		      tickColor: '#DDDDDD',  // => color used for the ticks
+		      labelMargin: 3,        // => margin in pixels
+		      verticalLines: true,   // => whether to show gridlines in vertical direction
+		      horizontalLines: true, // => whether to show gridlines in horizontal direction
+		      outlineWidth: 0        // => width of the grid outline/border in pixels
+		    } ,
+		    lines: { show: true },
+		          points: { show: true }
     
     });
     
