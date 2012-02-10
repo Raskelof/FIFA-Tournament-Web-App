@@ -3,30 +3,11 @@
 
 $(function () {
 
-		<%
-			all_rankings = @player.player_logs.sort_by{|l| l.created_at}
-			one_per_day = []
-			
-			previous_day = nil
-			all_rankings.each_with_index do |r,index|
-			
-				if(!previous_day.nil? && r.created_at.day != previous_day.created_at.day)
-					one_per_day.push(previous_day)
-				end
-				
-				if(index == (all_rankings.length-1))
-					one_per_day.push(r)
-				end
-			
-				previous_day = r
-			end
-		%>
-
     var d = 
     [
-    <% one_per_day.each_with_index do |log, index| %>
+    <% @historic_ranking_by_day.each_with_index do |log, index| %>
 	[<%= log.created_at.to_i * 1000%>, <%= log.score %>]
-	<% if(index != (one_per_day.length-1)) %>, <% end%>
+	<% if(index != (@historic_ranking_by_day.length-1)) %>, <% end%>
     <% end %>
     ];
 

@@ -38,7 +38,7 @@ class Team < ActiveRecord::Base
 			matchcount = 1
     end
 
-    ((wins * 3) + (draws * 1)) / matchcount
+    (((wins * 3) + (draws * 1)).to_f / matchcount.to_f).to_f.round 1
   end
 
   private

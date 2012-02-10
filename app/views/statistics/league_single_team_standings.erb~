@@ -36,7 +36,7 @@
 		<td class="green"><%= team.wins %></td>
 		<td class="red"><%= team.losses %></td>
 		<td><%= team.draws %></td>
-		<td class="blue"><%= team.points %></td>
+		<td class="blue"><%= team.points_per_game %></td>
 		</tr>
 		<% end %>
 	</tbody>

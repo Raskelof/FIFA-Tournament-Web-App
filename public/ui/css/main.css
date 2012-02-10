@@ -1,0 +1,47 @@
+
+.grey-stars {
+    background: url("/ui/images/grey-stars.png") no-repeat scroll left center transparent;
+    float: left;
+    height: 17px;
+    margin: 3px 5px 0 0;
+    width: 87px;
+}
+
+.grey-stars .gold-stars {
+    background: url("/ui/images/gold-stars.png") no-repeat scroll left center transparent;
+    height: 100%;
+}
+
+#result-table th, 
+#result-table td {text-align:right}
+
+.red {color:#EB0E58}
+.blue {color:#205bd5}
+.green {color:#72c635}
+
+.result-icon {display:inline-block;margin-right:10px;height:10px;width:10px;background-color:red}
+
+.bg-red {background-color:#EB0E58}
+.bg-green {background-color:#82CC02}
+.bg-gray {background-color:gray}
+
+.hidden {display:none}	
+
+.ui-bar-b {
+		background: -moz-linear-gradient(#3e89c1, #417daa) repeat scroll 0 0 #37a0f1;
+		border: 1px solid #456F9A;
+		color: #FFFFFF;
+		font-weight: bold;
+		text-shadow: 0 -1px 1px #254F7A;
+}		
+
+.ui-btn-active {
+		background: -moz-linear-gradient(#0a5e9e, #086ab4) repeat scroll 0 0 #37a0f1;
+		border: 1px solid #155678;
+		color: #FFFFFF;
+		cursor: pointer;
+		font-family: Helvetica,Arial,sans-serif;
+		font-weight: bold;
+		text-decoration: none;
+		text-shadow: 0 -1px 1px #145072;
+}

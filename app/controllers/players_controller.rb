@@ -38,6 +38,24 @@ class PlayersController < ApplicationController
   end
   
   def ranking_over_time
+  	
+  	all_rankings = @player.player_logs.sort_by{|l| l.created_at}
+		@historic_ranking_by_day = []
+			
+			previous_day = nil
+			all_rankings.each_with_index do |r,index|
+			
+				if(!previous_day.nil? && r.created_at.day != previous_day.created_at.day)
+					@historic_ranking_by_day.push(previous_day)
+				end
+				
+				if(index == (all_rankings.length-1))
+					@historic_ranking_by_day.push(r)
+				end
+			
+				previous_day = r
+			end
+  	
    	 respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @player }
@@ -83,7 +101,7 @@ def get_player_statistics
 				end
 			end
 		end
-#@player_logs = @player.player_logs
+
 end
   
 def get_match_color(m)

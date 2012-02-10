@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
-	<title>ISOTOP-FIFA</title> 
+	<title><%= FIFA::Application.config.app_name  %></title> 
 	<link rel="apple-touch-icon-precomposed" href="/ui/iphone-icon.png"/>
 	<link rel="apple-touch-icon" href="/ui/iphone-icon.png"/>    
 	<link rel="apple-touch-startup-image" href="/ui/iphone-icon.png" /> 
@@ -11,22 +11,17 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="default" />  
 
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
-	<script src="/ui/jquery-1.6.4.min.js"></script>
-	<script src="/ui/jquery.mobile-1.0.min.js"></script>
-	<script src="/ui/teams.js"></script>
-	<script src="/ui/jqm_helper.js"></script>
-	<script src="/ui/general.js"></script>
+	<script src="/ui/js/jquery-1.6.4.min.js"></script>
+	<script src="/ui/js/jquery.mobile-1.0.min.js"></script>
+	<script src="/ui/js/teams.js"></script>
+	<script src="/ui/js/jqm_helper.js"></script>
+	<script src="/ui/js/general.js"></script>
 	
 	<script language="javascript" type="text/javascript" src="/ui/flot/jquery.flot.js"></script>
 	<script language="javascript" type="text/javascript" src="/ui/flot/jquery.flot.pie.js"></script>
   <script language="javascript" type="text/javascript" src="/ui/flot/jquery.flot.resize.js"></script>
 	
-	<link rel="stylesheet" href="/ui/main.css" />
-
-	<style>
-		.hidden {display:none}	
-		
-	</style>
+	<link rel="stylesheet" href="/ui/css/main.css" />
 	
 	<%= yield :header %>
 

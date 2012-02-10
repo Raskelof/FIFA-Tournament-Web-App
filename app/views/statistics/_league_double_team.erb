@@ -17,14 +17,14 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% teams.select{|t| t.players.length > 1}.each do |team| %>
+		<% @teams.select{|t| t.players.length > 1}.each do |team| %>
 		<tr>
 		<td style="text-align:left"><%= team.display_name %></td>
 		<td><%= team.matches.length %></td>
 		<td class="green"><%= team.wins %></td>
 		<td class="red"><%= team.losses %></td>
 		<td><%= team.draws %></td>
-		<td class="blue"><%= team.points_per_game %></td>
+		<td class="blue"><%= team.points_per_game.to_f %></td>
 		</tr>
 		<% end %>
 	</tbody>
