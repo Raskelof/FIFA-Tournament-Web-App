@@ -20,8 +20,7 @@ class GameManager
 	 	
 	 	#3 calculate
 	 	### 3.1 take 10% of points from the loosing teams lowest ranked player 
-	 	### 3.2 take above amount from the loosing teams higest ranked player
-	 	
+	 	### 3.2 take above amount from the loosing teams higest ranked player 	
 	 	### 3.3 summarize the outcome of above and give the ponints to the winning teams players divided by 2
 	 	
 	 	player_lowest_rank = looser_team.players.sort_by{|t| t.score}.first
