@@ -66,6 +66,8 @@ class MatchesController < ApplicationController
         @match.points_trace = gm.points_trace
         @match.save
         
+        write_to_player_log (all_players)
+        
         format.html { redirect_to @match, notice: 'Match was successfully created.' }
         format.json { render json: @match, status: :created, location: @match }
       else

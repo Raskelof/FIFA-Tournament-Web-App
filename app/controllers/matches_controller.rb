@@ -61,12 +61,12 @@ class MatchesController < ApplicationController
       if @match.save
         MatchLog.create({:match_id => @match.id, :msg => "<strong class='log_home_team'>#{@match.home_team.display_name}</strong> just played against <strong class='log_away_team'>#{@match.away_team.display_name}</strong> and it ended #{@match.home_score} - #{@match.away_score}"})
 
-	write_to_player_log (all_players)
-
         gm = GameManager.new
         gm.EvaluateMatch(@match)
         @match.points_trace = gm.points_trace
         @match.save
+        
+        write_to_player_log (all_players)
         
         format.html { redirect_to @match, notice: 'Match was successfully created.' }
         format.json { render json: @match, status: :created, location: @match }
