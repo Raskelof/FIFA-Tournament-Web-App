@@ -28,7 +28,7 @@
 <div class="ui-grid-a">
 	<div class="ui-block-a"  style="width:75%;">
 		<select name="match[home_team_id]" id="match_home_team_id">
-		    <% @teams.each do |team| %>
+		    <% @teams.sort{|a,b|a.display_name <=> b.display_name}.each do |team| %>
 		      <option value="<%= team.id %>">
 			<%= team.display_name %>
 		      </option>
@@ -57,7 +57,7 @@
 <div class="ui-grid-a">
 	<div class="ui-block-a"  style="width:75%;">
 		<select name="match[away_team_id]" id="match_away_team_id">
-		    <% @teams.each do |team| %>
+		    <% @teams.sort{|a,b|a.display_name <=> b.display_name}.each do |team| %>
 		      <option value="<%= team.id %>">
 			<%= team.players.map{|p| p.username}.join(" & ") %>
 		      </option>
