@@ -33,7 +33,7 @@ You could say there are three leagues in the app, a player ranking league, a dou
 Player ranking calculation and the 10% rule
 -------------
 
-The rules are simple but a litle bit diffrent. The tournament is a race between individual players but you get individual ranking points on all kinds of matches(single, doubles or more).  All players starts out with 1000 ranking points and when you win a match you earn 10% of your opponents ranking points. If you team up with another player, you can only loose as much as 10% of the lowest ranked player.
+The rules are simple but a litle bit diffrent. The tournament is a race between individual players but you get individual ranking points on all kinds of matches(single, doubles or more).  All players starts out with 1000 ranking points and when you win a match you earn 10% of your opponents ranking points. If you team up with another player, you can only loose as much as 10% of the lowest ranked player in your team.
 
 Contributors
 -------------
