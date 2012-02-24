@@ -2,7 +2,7 @@
 <div class="portrait-mode">
   <div data-role="content" style="background:#fff">
 	<div style="text-align:center">
-		<img class="logo" src="<%= FIFA::Application.config.front_spage_header_img_src %>" style="width:90%"  />
+		<img class="logo" src="<%= FIFA::Application.config.front_page_header_img_src %>" style="width:90%"  />
 	</div>
 
     <ul data-role="listview" data-inset="true">
@@ -16,7 +16,7 @@
     </ul>
 	<br />
 	<ul data-role="listview" class="ui-listview">
-		<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-b">
+		<li data-role="list-divider" role="heading" class="y ui-li ui-li-divider ui-btn ui-bar-f">
 		Latest activity	
 		</li>
 		<% @match_logs.take(5).each do |log| %>
