@@ -1,7 +1,7 @@
 FIFA Tournament web app
 =============
 
-FIFA Tournament web app is mobile webb application built for all EA Sports FIFA fans out there. The application lets you create and manage a tournament with your friends. Report matches and follow the player ranking and other statistics.
+FIFA Tournament web app is a mobile webb application built for all EA Sports FIFA fans out there. The application lets you create and manage a tournament with your friends. Report matches and follow player rankings and other statistics.
 
 The interface is built with jQuery mobile and is best viewed through your smartphone device.
 
@@ -35,7 +35,7 @@ You could say there are three leagues in the app, a player ranking league, a dou
 Player ranking calculation and the 10% rule
 -------------
 
-The rules are simple but a litle bit diffrent. The tournament is a race between individual players but you get individual ranking points on all kinds of matches(single, doubles or more).  All players starts out with 1000 ranking points and when you win a match you earn 10% of your opponents ranking points. If you team up with another player, you can only loose as much as 10% of the lowest ranked player in your team.
+The rules are simple but a little bit different. The tournament is a race between individual players but you get individual ranking points on all kinds of matches(single, doubles or more).  All players starts out with 1000 ranking points and when you win a match you earn 10% of your opponents ranking points. If you team up with another player, you can only loose as much as 10% of the lowest ranked player in your team.
 
 Contributors
 -------------
