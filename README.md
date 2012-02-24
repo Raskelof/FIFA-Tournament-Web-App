@@ -23,11 +23,11 @@ Statistics
 
 You could say there are three leagues in the app, a player ranking league, a double(or more) team league and a single league.
 
-'The player ranking league is a race between individual players. Players get or loose ranking points for every match they play(single, double or more).
+* The player ranking league is a race between individual players. Players get or loose ranking points for every match they play(single, double or more).
 
-'The double league is a classic soccer league table. The team earns 3 points for a win and 1 point for a draw.' 
+* The double league is a classic soccer league table. The team earns 3 points for a win and 1 point for a draw.' 
 
-'The single league works the same way as the double league, but this league only summerizes individual players.
+* The single league works the same way as the double league, but this league only summerizes individual players.
 
 
 Player ranking calculation and the 10% rule
