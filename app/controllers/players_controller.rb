@@ -2,7 +2,6 @@ class PlayersController < ApplicationController
   # GET /players
   # GET /players.json
   
-  before_filter :load_show_actions
   helper_method :get_match_color
   
   def index
@@ -31,6 +30,7 @@ class PlayersController < ApplicationController
   # GET /players/1
   # GET /players/1.json
   def show
+  	load_show_actions
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @player }
@@ -38,6 +38,7 @@ class PlayersController < ApplicationController
   end
   
   def ranking_over_time
+  	load_show_actions
   	
   	all_rankings = @player.player_logs.sort_by{|l| l.created_at}
 		@historic_ranking_by_day = []
@@ -63,6 +64,8 @@ class PlayersController < ApplicationController
   end
   
   def pie_chart
+  	load_show_actions
+  
    	 respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @player }
@@ -70,6 +73,8 @@ class PlayersController < ApplicationController
   end
   
   def matches
+  	load_show_actions
+  	
    	 respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @player }
