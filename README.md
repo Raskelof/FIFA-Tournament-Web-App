@@ -33,42 +33,7 @@ The single league works the same way as the double league, but this league only 
 Player ranking calculation and the 10% rule
 -------------
 
-Players/teams who wins over other players/teams earns 10% of the loosing players points. 
-
-Example: Player A has 1100 points and wins over player B who has 1000. Player A gets 100 points from Player B.
-
-When you play in a team with another player, you only risk the same amount as 10% of the teams lowest ranked player.
-
-Example:
-
-Team A plays a match against Team B.
-
-Ranking points pre-match.
-
-Team A
-Player A1 points 1200
-Player A2 point 1000
-
-Team B
-Player B1 points 800
-Player B2 point 1300
-
-Team B wins the match and Players A2 is looser teams lowest ranked player. 10% of Players A2's 1000 points is 100 and the same amount will be transfered from Player A1.
-Team B wins a total of 200 points which will distributed over the players in Team B.
-
-Ranking points after the match.
-
-Team A
-Player A1 points 1100
-Player A2 point 900
-
-Team B
-Player B1 points 900
-Player B2 point 1400
-
-
-All players starts with a ranking of 1000 points.
-
+The rules are simple but a litle bit diffrent. The tournament is a race between individual players but you get individual ranking points on all kinds of matches(single, doubles or more).  All players starts out with 1000 ranking points and when you win a match you earn 10% of your opponents ranking points. If you team up with another player, you can only loose as much as 10% of the lowest ranked player.
 
 Contributors
 -------------
