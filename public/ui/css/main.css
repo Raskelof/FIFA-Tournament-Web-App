@@ -29,7 +29,7 @@
 
 .ui-bar-f {
 		background: -moz-linear-gradient(#3e89c1, #417daa) repeat scroll 0 0 #37a0f1;
-		background-image:-webkit-gradient(linear,left top,left bottom,from(red),to(red));
+		background-image:-webkit-gradient(linear,left top,left bottom,from(#3e89c1),to(#417daa));
 		background-image:-webkit-linear-gradient(#3e89c1,#417daa);
 		border: 1px solid #456F9A !important;
 		color: #FFFFFF !important;
