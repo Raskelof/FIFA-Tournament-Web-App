@@ -1,7 +1,7 @@
 FIFA Tournament web app
 =============
 
-FIFA Tournament web app is a mobile webb application built for all EA Sports FIFA fans out there. The application lets you create and manage a tournament with your friends. Report matches and follow player rankings and other statistics.
+FIFA Tournament web app is a mobile web application built for all EA Sports FIFA fans out there. The application lets you create and manage a tournament with your friends. Report matches and follow player rankings and other statistics.
 
 The interface is built with jQuery mobile and is best viewed through your smartphone device.
 
@@ -41,7 +41,7 @@ Contributors
 -------------
 
 * Raskelof
-* boende
+* boena
 * FuserV
 
 
